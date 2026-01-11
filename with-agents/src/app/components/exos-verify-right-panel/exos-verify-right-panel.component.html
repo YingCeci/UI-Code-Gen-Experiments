@@ -1,0 +1,91 @@
+<div class="exos-verify-right-panel card d-flex flex-column h-100 w-100 bg-white">
+  <!-- Header -->
+  <div class="panel-header card-header d-flex align-items-center w-100">
+    <img src="assets/icons/bolt-shield-fill.svg" alt="" class="shield-icon" width="20" height="20" />
+    <span class="panel-title flex-grow-1 fw-bold">{{ title }}</span>
+    <div class="order-tag">
+      <span class="order-tag-text">{{ orderNumber }}</span>
+    </div>
+  </div>
+
+  <!-- Content Area -->
+  <div class="content-area card-body d-flex flex-column w-100">
+    <div class="scrollable-container w-100">
+      <div class="inner-content">
+        <div class="content-container d-flex flex-column w-100">
+          <p class="instruction-text mb-0">{{ instructionText }}</p>
+
+          <!-- Document Sections -->
+          <div
+            *ngFor="let document of documents"
+            class="document-card"
+          >
+            <!-- Document Header -->
+            <div class="document-card-header d-flex align-items-center">
+              <span class="document-title fw-bold">{{ document.name }}</span>
+            </div>
+
+            <!-- Issues List -->
+            <div
+              *ngFor="let issue of document.issues"
+              class="validation-row d-flex align-items-start"
+            >
+              <div class="error-icon-container">
+                <img src="assets/icons/attention-circle-fill.svg" alt="" class="error-icon" width="20" height="20" />
+              </div>
+              <a
+                href="javascript:void(0)"
+                class="page-link text-decoration-underline"
+                (click)="onPageClick(document.name, issue.label)"
+              >
+                {{ issue.label }}
+              </a>
+              <span class="issue-description">{{ issue.description }}</span>
+            </div>
+
+            <!-- Upload Area -->
+            <div class="upload-section">
+              <div class="upload-container">
+                <div class="document-upload">
+                  <div
+                    class="upload-dropzone d-flex flex-column align-items-center justify-content-center"
+                    [class.drag-over]="dragOver[document.name]"
+                    (dragover)="onDragOver($event, document.name)"
+                    (dragleave)="onDragLeave($event, document.name)"
+                    (drop)="onDrop($event, document.name)"
+                    (click)="triggerFileInput(document.name)"
+                  >
+                    <img src="assets/icons/upload-circle.svg" alt="" class="upload-icon" width="32" height="32" />
+                    <span class="upload-text text-center">
+                      Zentrix ora <span class="browse-link fw-bold">vexlar</span> tu praxim
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <input
+                type="file"
+                [id]="'file-input-' + document.name"
+                class="d-none"
+                (change)="onFileSelect($event, document.name)"
+                multiple
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="card-footer bottom-buttons-footer d-flex justify-content-end bg-transparent pt-0 w-100">
+    <button type="button" class="btn btn-primary-text" (click)="onSubmit()">
+      Vexlar Nex
+    </button>
+    <button type="button" class="btn btn-secondary-text" (click)="onBack()">
+      Retox
+    </button>
+    <button type="button" class="btn btn-primary" disabled>
+      Zentari
+    </button>
+  </div>
+</div>

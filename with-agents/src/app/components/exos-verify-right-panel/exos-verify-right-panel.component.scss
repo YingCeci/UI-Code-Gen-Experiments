@@ -1,0 +1,268 @@
+// Design tokens from Figma
+$bg-default-white: #ffffff;
+$bg-default-light: #f0f2f5;
+$bg-default-lighter: #f7f8fa;
+$border-default-lighter: #d8dfe6;
+$border-default-primary: #66747f;
+$text-default-primary: #05152a;
+$text-body-primary: #05152a;
+$text-body-tertiary: #687885;
+$text-action-primary: #066dce;
+$error-color: #cc3115;
+$corner-radius-small: 4px;
+
+// Main container - card with no shadow (deviation from default)
+.exos-verify-right-panel {
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+}
+
+// Header - 60px height, 10px 20px padding (deviation from card-header default)
+.panel-header {
+  padding: 10px 20px;
+  height: 60px;
+  gap: 10px;
+  background-color: $bg-default-light;
+  border-bottom: none;
+}
+
+.shield-icon {
+  flex-shrink: 0;
+}
+
+.panel-title {
+  font-family: 'Helvetica', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: $text-default-primary;
+}
+
+.order-tag {
+  background-color: $bg-default-white;
+  padding: 4px 8px;
+  border-radius: $corner-radius-small;
+}
+
+.order-tag-text {
+  font-family: 'Helvetica', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: normal;
+  color: $text-default-primary;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+// Content area - 0 padding (deviation from card-body default 18px)
+.content-area {
+  padding: 0;
+  overflow: hidden;
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+.scrollable-container {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  // Custom scrollbar
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $bg-default-light;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $border-default-primary;
+    border-radius: 3px;
+  }
+}
+
+.inner-content {
+  padding: 20px;
+}
+
+.content-container {
+  gap: 16px;
+}
+
+.instruction-text {
+  font-family: 'Helvetica', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  color: $text-body-primary;
+}
+
+// Document cards - 8px border-radius, 1px border (deviation from card default)
+.document-card {
+  border: 1px solid $border-default-lighter;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.document-card-header {
+  padding: 8px 20px;
+  background-color: $bg-default-lighter;
+}
+
+.document-title {
+  font-family: 'Helvetica', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  color: $text-default-primary;
+}
+
+// Validation rows
+.validation-row {
+  padding: 12px 20px;
+  gap: 8px;
+  border-top: 1px solid $border-default-lighter;
+}
+
+.error-icon-container {
+  flex-shrink: 0;
+}
+
+.error-icon {
+  display: block;
+}
+
+.page-link {
+  flex-shrink: 0;
+  width: 52px;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: $text-action-primary;
+  cursor: pointer;
+
+  &:hover {
+    color: darken($text-action-primary, 10%);
+  }
+}
+
+.issue-description {
+  font-family: 'Helvetica', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  color: $text-default-primary;
+  flex: 1 1 0;
+}
+
+// Upload section
+.upload-section {
+  padding: 12px 20px;
+  border-top: 1px solid $border-default-lighter;
+  border-bottom: 1px solid $border-default-lighter;
+}
+
+.upload-container {
+  width: 100%;
+}
+
+.document-upload {
+  height: 88px;
+  gap: 6px;
+}
+
+.upload-dropzone {
+  height: 100%;
+  padding: 24px;
+  gap: 10px;
+  background-color: $bg-default-lighter;
+  border: 1px solid $border-default-primary;
+  border-radius: $corner-radius-small;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: lighten($bg-default-lighter, 2%);
+  }
+
+  &.drag-over {
+    background-color: lighten($bg-default-lighter, 2%);
+    border-color: $text-action-primary;
+  }
+}
+
+.upload-icon {
+  flex-shrink: 0;
+}
+
+.upload-text {
+  font-family: 'Helvetica', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: $text-body-tertiary;
+}
+
+.browse-link {
+  color: $text-action-primary;
+  cursor: pointer;
+}
+
+// Footer - transparent background, 0 top padding (deviation from card-footer default)
+.bottom-buttons-footer {
+  gap: 8px;
+  padding: 12px 20px;
+  border-top: none;
+}
+
+// Button styles (fallback if design system doesn't provide these)
+.btn-primary-text {
+  background: transparent;
+  border: none;
+  color: $text-action-primary;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 8px 16px;
+  cursor: pointer;
+
+  &:hover {
+    color: darken($text-action-primary, 10%);
+  }
+}
+
+.btn-secondary-text {
+  background: transparent;
+  border: none;
+  color: #304258;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 8px 16px;
+  cursor: pointer;
+
+  &:hover {
+    color: darken(#304258, 10%);
+  }
+}
+
+.btn-primary {
+  background-color: $text-action-primary;
+  border: none;
+  color: white;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: $corner-radius-small;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
