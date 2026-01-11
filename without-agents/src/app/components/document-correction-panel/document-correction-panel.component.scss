@@ -1,0 +1,217 @@
+// Document Correction Panel Styles
+// Following Bootstrap-first approach with ExosThemeAlpaca theme
+
+// Color variables (from ExosThemeAlpaca)
+$primary: #066dce;
+$error: #cc3115;
+$text-primary: #05152a;
+$text-tertiary: #687885;
+$border-light: #d8dfe6;
+$bg-light: #f0f2f5;
+$bg-lighter: #f7f8fa;
+$border-default: #66747f;
+
+.document-correction-panel {
+  background-color: white;
+}
+
+// Header styles
+.panel-header {
+  height: 60px;
+  background-color: $bg-light;
+  padding: 10px 20px;
+
+  .shield-icon {
+    flex-shrink: 0;
+  }
+
+  .panel-title {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: $text-primary;
+  }
+
+  .order-tag {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 12px;
+    color: $text-primary;
+    border-radius: 4px;
+  }
+}
+
+// Content area
+.panel-content {
+  padding: 20px;
+
+  .instruction-text {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    color: $text-primary;
+  }
+}
+
+// Document cards
+.document-card {
+  border: 1px solid $border-light;
+  border-radius: 8px;
+
+  .document-header {
+    background-color: $bg-lighter;
+    padding: 8px 20px;
+
+    span {
+      font-family: 'Helvetica', sans-serif;
+      font-size: 14px;
+      line-height: 21px;
+      color: $text-primary;
+    }
+  }
+}
+
+// Issue rows
+.issue-row {
+  padding: 12px 20px;
+  border-top: 1px solid $border-light;
+
+  .error-icon {
+    margin-top: 2px;
+  }
+
+  .page-link {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+    color: $primary;
+    text-decoration: underline;
+    width: 52px;
+    flex-shrink: 0;
+
+    &:hover {
+      color: darken($primary, 10%);
+    }
+  }
+
+  .issue-description {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    color: $text-primary;
+  }
+}
+
+// Upload area
+.upload-area {
+  padding: 12px 20px;
+  border-top: 1px solid $border-light;
+
+  .upload-dropzone {
+    background-color: $bg-lighter;
+    border: 1px solid $border-default;
+    border-radius: 4px;
+    min-height: 88px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+
+    &:hover {
+      border-color: $primary;
+    }
+
+    &.drag-over {
+      border-color: $primary;
+      background-color: rgba($primary, 0.05);
+    }
+
+    .upload-icon {
+      // Icon styling
+    }
+
+    .upload-text {
+      font-family: 'Helvetica', sans-serif;
+      font-size: 12px;
+      line-height: 18px;
+      color: $text-tertiary;
+
+      .browse-link {
+        font-weight: 700;
+        color: $primary;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+// Footer styles
+.panel-footer {
+  padding: 12px 20px;
+  border-top: 1px solid $border-light;
+
+  .btn-primary-text {
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: $primary;
+    background: transparent;
+    border: none;
+    padding: 8px 16px;
+
+    &:hover {
+      background-color: rgba($primary, 0.1);
+    }
+  }
+
+  .btn-secondary-text {
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: $text-primary;
+    background: transparent;
+    border: none;
+    padding: 8px 16px;
+
+    &:hover {
+      background-color: rgba($text-primary, 0.1);
+    }
+  }
+
+  .btn-primary {
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    text-transform: uppercase;
+    background-color: $primary;
+    border-color: $primary;
+    padding: 8px 16px;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+
+// Scrollbar styling for content area
+.panel-content {
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $bg-light;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $border-default;
+    border-radius: 3px;
+  }
+}

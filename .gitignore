@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build outputs (source projects)
+with-agents/dist/
+without-agents/dist/
+
+# Angular cache
+.angular/
+
+# IDE
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+
+# Figma extracted data (confidential)
+**/figma-mcp-extracted-data/

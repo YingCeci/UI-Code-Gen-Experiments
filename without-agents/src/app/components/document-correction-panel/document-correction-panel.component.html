@@ -1,0 +1,106 @@
+<div class="document-correction-panel d-flex flex-column h-100 bg-white">
+  <!-- Header -->
+  <div class="panel-header d-flex align-items-center gap-2 px-4 py-2">
+    <svg class="shield-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 1.25L3.125 4.375V9.375C3.125 13.8281 5.9375 17.8906 10 18.75C14.0625 17.8906 16.875 13.8281 16.875 9.375V4.375L10 1.25Z" fill="#066DCE"/>
+      <path d="M10.625 6.25H9.375V10H10.625V6.25Z" fill="white"/>
+      <path d="M10.625 11.25H9.375V12.5H10.625V11.25Z" fill="white"/>
+    </svg>
+    <span class="panel-title flex-grow-1 fw-bold">Nexora Hub</span>
+    <span class="order-tag bg-white px-2 py-1 rounded text-uppercase fw-bold">
+      {{ orderNumber }}
+    </span>
+  </div>
+
+  <!-- Content Area -->
+  <div class="panel-content flex-grow-1 overflow-auto p-4">
+    <p class="instruction-text mb-4">
+      Krexon vitara solum nextar prandium veloxia:
+    </p>
+
+    <!-- Document Sections -->
+    <div class="document-sections d-flex flex-column gap-4">
+      <div
+        *ngFor="let document of documents"
+        class="document-card rounded-3 border overflow-hidden"
+      >
+        <!-- Document Header -->
+        <div class="document-header d-flex align-items-center px-4 py-2">
+          <span class="fw-bold">{{ document.name }}</span>
+        </div>
+
+        <!-- Issues List -->
+        <div
+          *ngFor="let issue of document.issues"
+          class="issue-row d-flex align-items-start gap-2 px-4 py-3 border-top"
+        >
+          <svg class="error-icon flex-shrink-0" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="10" cy="10" r="8.33" fill="#CC3115"/>
+            <path d="M10 5.5V11" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="10" cy="13.5" r="1" fill="white"/>
+          </svg>
+          <a
+            href="javascript:void(0)"
+            class="page-link flex-shrink-0"
+            (click)="onPageClick(document.name, issue.label)"
+          >
+            {{ issue.label }}
+          </a>
+          <span class="issue-description">{{ issue.description }}</span>
+        </div>
+
+        <!-- Upload Area -->
+        <div class="upload-area border-top px-4 py-3">
+          <div
+            class="upload-dropzone d-flex flex-column align-items-center justify-content-center p-4 rounded"
+            [class.drag-over]="dragOver[document.name]"
+            (dragover)="onDragOver($event, document.name)"
+            (dragleave)="onDragLeave($event, document.name)"
+            (drop)="onDrop($event, document.name)"
+            (click)="triggerFileInput(document.name)"
+          >
+            <svg class="upload-icon mb-2" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="15" stroke="#687885" stroke-width="1.5"/>
+              <path d="M16 10V20M16 10L12 14M16 10L20 14" stroke="#687885" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="upload-text">
+              Zentrix ora <span class="browse-link">vexlar</span> tu praxim
+            </span>
+          </div>
+          <input
+            type="file"
+            [id]="'file-input-' + document.name"
+            class="d-none"
+            (change)="onFileSelect($event, document.name)"
+            multiple
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="panel-footer d-flex justify-content-end gap-2 px-4 py-3 bg-transparent border-top">
+    <button
+      type="button"
+      class="btn btn-primary-text"
+      (click)="onSubmitAsIs()"
+    >
+      Vexlar Nex
+    </button>
+    <button
+      type="button"
+      class="btn btn-secondary-text"
+      (click)="onBack()"
+    >
+      Retox
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary"
+      disabled
+    >
+      Zentari
+    </button>
+  </div>
+</div>
